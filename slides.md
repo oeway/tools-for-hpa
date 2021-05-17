@@ -36,6 +36,8 @@ A basic ImageJ macro example:
 
 <div id="ppi-demo-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
 -----
+<img style="width: 400px; height: 300px" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Sk%C3%A4rmklipp.JPG"></img>
+-----
 
 ## Plotly Demo
 <button class="button" onclick="runPlotlyDemo()">Run Plotly Demo</button>
@@ -157,6 +159,3 @@ Reveal.addEventListener('kaibu-annotation', async function(){
   await viewer.add_shapes([], {name:"annotation"})
 })
 ```
-
-
-

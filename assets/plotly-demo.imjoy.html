@@ -1,0 +1,46 @@
+<docs lang="markdown">
+[TODO: write documentation for this plugin.]
+</docs>
+
+<config lang="json">
+{
+  "name": "PlotlyDemo",
+  "type": "native-python",
+  "version": "0.1.0",
+  "description": "[TODO: describe this plugin with one sentence.]",
+  "tags": [],
+  "ui": "",
+  "cover": "",
+  "inputs": null,
+  "outputs": null,
+  "flags": [],
+  "icon": "extension",
+  "api_version": "0.1.8",
+  "env": "",
+  "permissions": [],
+  "requirements": ["plotly"],
+  "dependencies": []
+}
+</config>
+
+<script lang="python">
+from imjoy import api
+import plotly.express as px
+
+class ImJoyPlugin():
+    def setup(self):
+        api.log('initialized')
+
+    async def run(self, ctx):
+        df = px.data.gapminder().query("country=='Canada'")
+        fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
+        # instead of doing fig.show(), we can call the chart editor instead
+        chart_editor = await api.createWindow(src='https://chart.imjoy.io/',
+                                              name='Plotly Demo',
+                                              fullscreen=True,
+                                              config={"hideControls": True},
+                                             )
+        await chart_editor.setState(fig.to_dict())
+
+api.export(ImJoyPlugin())
+</script>

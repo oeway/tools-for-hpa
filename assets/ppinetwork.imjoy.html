@@ -1,0 +1,445 @@
+<docs lang="markdown">
+    [TODO: write documentation for this plugin.]
+</docs>
+
+<config lang="json">
+    { 
+    "name": "Get PPIN v.2", 
+    "type": "window", 
+    "tags": [], 
+    "ui": "", 
+    "version": "0.1.0", 
+    "cover": "", 
+    "description": "[TODO: Fetches a PPI network given a gene name]", 
+    "icon": "extension", 
+    "inputs": null, 
+    "outputs": null, 
+    "api_version": "0.1.8", 
+    "env": "", 
+    "permissions": [], 
+    "requirements": ["https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.1/cytoscape.umd.js",
+     "https://cdn.jsdelivr.net/npm/papaparse@5.2.0/papaparse.min.js", 
+     "https://hugools.github.io/cytoscape.js-cise/cytoscape-cise.js?123",
+     "https://unpkg.com/spectre.css/dist/spectre.min.css",
+     "https://unpkg.com/spectre.css/dist/spectre-exp.min.css",
+     "https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+     ], 
+     "dependencies": [], 
+     "defaults": {"w": 20, "h": 10} }
+</config>
+
+<script lang="javascript">
+    class ImJoyPlugin {
+        async setup() {
+            api.log('initialized')
+            document.getElementById("searchButton").addEventListener("click", this.go.bind(this)); 
+            document.getElementById("changeImage").addEventListener("click", this.change.bind(this)); 
+            Papa.parse("https://dl.dropbox.com/s/k9ekd4ff3fyjbfk/umap_results_fit_all_transform_all_sorted_20190422.csv", {
+                download: true,
+                complete: (results) => {
+                    this.csvTable = results
+                    console.log('csv table downloaded')
+                }
+            });
+        }
+        
+        changeImage(results, protein){
+            var imageList=[];
+            for (i=1; i<results["data"].length; i++) {
+                var gene=results["data"][i][5]
+                if (gene===protein) {
+                    imageList.push(results["data"][i][2])
+                }
+            }
+            console.log(imageList)
+            var linkList=[];
+            for (i=0; i<imageList.length; i++) {
+                    if (imageList[i][5]==="_"){
+                      var temp=imageList[i].substring(0,5)+"/"+imageList[i].substring(6,imageList[i].length)
+                      linkList.push(temp)
+                    } else if (imageList[i][4]==="_"){
+                      var temp=imageList[i].substring(0,4)+"/"+imageList[i].substring(5,imageList[i].length)
+                      linkList.push(temp)
+                    }
+                }
+              var changeList=[];
+              for (i=0; i<imageList.length; i++) {
+                var imageLink=`https://images.proteinatlas.org/${linkList[i]}_blue_red_green.jpg`;
+                changeList.push(imageLink)
+              }
+              console.log(changeList)
+              var currentImage=document.getElementById("hpaImage").src
+              var currentIndex=changeList.indexOf(currentImage)
+              if (currentIndex<changeList.length-1){
+                var newImage=changeList[currentIndex+1];
+              } else if (currentIndex=changeList.length-1){
+                var newImage=changeList[0];
+              }
+              document.getElementById("hpaImage").src=newImage
+              document.getElementById("indexText").innerHTML=(changeList.indexOf(newImage)+1)+"/"+linkList.length
+        }
+        
+     change(){
+        var protein=document.getElementById("headline-text").textContent
+        this.changeImage(this.csvTable, protein)
+      } 
+        
+      filterRows(results, protein){
+            var imageList=[];
+            for (i=1; i<results["data"].length; i++) {
+                var gene=results["data"][i][5]
+                if (gene===protein) {
+                    imageList.push(results["data"][i][2])
+                }
+            }
+            console.log(imageList)
+            var linkList=[];
+            for (i=0; i<imageList.length; i++) {
+                    if (imageList[i][5]==="_"){
+                      var temp=imageList[i].substring(0,5)+"/"+imageList[i].substring(6,imageList[i].length)
+                      linkList.push(temp)
+                    } else if (imageList[i][4]==="_"){
+                      var temp=imageList[i].substring(0,4)+"/"+imageList[i].substring(5,imageList[i].length)
+                      linkList.push(temp)
+                    }
+                }
+                var imageLink=`https://images.proteinatlas.org/${linkList[0]}_blue_red_green.jpg`
+                document.getElementById("hpaImage").src=imageLink
+                if (imageList.length>0){
+                  document.getElementById("indexText").innerHTML="1/"+linkList.length
+                } else if (imageList.length<1) {
+                  document.getElementById("indexText").innerHTML="No images available"
+                }
+      }
+
+     go() {
+            var protein = document.getElementById("searchProtein").value
+            document.getElementById("headline-text").innerHTML=protein
+            var interactions = document.getElementById("interactions#").value
+            var url = `https://string-db.org/api/json/interaction_partners?identifiers=${protein}%0d&limit=${interactions}`;            
+            
+            this.filterRows(this.csvTable, protein);
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    var matches = [];
+                    var scores = []
+                    for (i = 0; i < data.length; i++) {
+                        var bestMatchString = JSON.stringify(data[i]);
+                        let bestMatchStringTwo = bestMatchString.replace("[{", "{");
+                        let bestMatchStringThree = bestMatchStringTwo.replace("}]", "}");
+                        var bestMatchObject = JSON.parse(bestMatchStringThree);
+                        matches.push(bestMatchObject.preferredName_B);
+                        scores.push(bestMatchObject.score);
+                    }
+                    var elemts = [{
+                        data: {
+                            id: protein
+                        }
+                    }];
+                    for (i = 0; i < matches.length; i++) {
+                        elemts.push({
+                            data: {
+                                id: matches[i]
+                            }
+                        });
+                        elemts.push({
+                            data: {
+                                id: i + " " + scores[i],
+                                source: protein,
+                                target: matches[i]
+                            }
+                        })
+                    }
+
+
+                    var cy = cytoscape({
+                        container: document.getElementById('cy'),
+                        elements: elemts,
+                        layout: {
+                            name: 'cise'
+                        },
+
+                        style: [{
+                            selector: 'node',
+                            style: {
+                                'background-color': 'grey',
+                                label: 'data(id)'
+                            }
+                        }]
+
+                    });
+
+                    var collect = cy.collection()
+                    var list = [];
+                    cy.edges(function(ele, i) {
+                        var str = ele['_private']['data']['id'];
+                        var value = str.substring(str.length - 5, str.length);
+                        collect = collect.union(ele);
+                        var edg = collect[collect.length - 1]['_private']['data']['id'];
+                        var ed = parseFloat(edg.substring(edg.length, edg.length - 5))
+                        list.push(ed);
+                    });
+
+                    for (i = 0; i < list.length; i++) {
+                        if (list[i] > 0.998) {
+                            collect[i].style('line-color', 'red')
+                        } else if (list[i] < 0.999 && list[i] > 0.997) {
+                            collect[i].style('line-color', 'orange')
+                        } else if (list[i] < 0.998 && list[i] > 0.996) {
+                            collect[i].style('line-color', 'yellow')
+                        } else if (list[i] < 0.997 && list[i] > 0.995) {
+                            collect[i].style('line-color', 'green')
+                        } else if (list[i] < 0.996 && list[i] > 0.994) {
+                            collect[i].style('line-color', 'blue')
+                        } else {
+                            collect[i].style('line-color', 'grey')
+                        }
+                    }
+
+
+
+                    cy.edges().on('click', function(e) {
+                        var str = e.target['_private']['data']['id'];
+                        console.log(e.target['_private'])
+                        var message = str.substring(str.length - 5, str.length);
+                        console.log(message)
+                        document.getElementById("interactionStrength").innerHTML = "The protein interaction strength is " + message + " between " + e.target['_private']['data']['source'] + " and " + e.target['_private']['data']['target'];
+                    });
+
+                    var collection = cy.collection();
+                    cy.nodes().on('click', function(e) {
+                        var clickedNode = e.target;
+                        collection = collection.union(clickedNode);
+                        console.log(collection[collection.length - 1]['_private']['data']['id'])
+                        update(collection);
+                    });
+                
+
+                    function update(x) {
+                        var protein = x[x.length - 1]['_private']['data']['id'];
+                        document.getElementById("headline-text").innerHTML=protein
+                        var url = `https://string-db.org/api/json/interaction_partners?identifiers=${protein}%0d&limit=${interactions}`;
+                        Papa.parse("https://dl.dropbox.com/s/k9ekd4ff3fyjbfk/umap_results_fit_all_transform_all_sorted_20190422.csv", {
+	            download: true,
+	            complete: function(results) {
+                var imageList=[];
+                for (i=1; i<results["data"].length; i++) {
+                    var gene=results["data"][i][5]
+                    if (gene===protein) {
+                        imageList.push(results["data"][i][2])
+                    }
+                }
+                console.log(imageList)
+                var linkList=[];
+                for (i=0; i<imageList.length; i++) {
+                        if (imageList[i][5]==="_"){
+                          var temp=imageList[i].substring(0,5)+"/"+imageList[i].substring(6,imageList[i].length)
+                          linkList.push(temp)
+                        } else if (imageList[i][4]==="_"){
+                          var temp=imageList[i].substring(0,4)+"/"+imageList[i].substring(5,imageList[i].length)
+                          linkList.push(temp)
+                        }
+                    }
+                    var imageLink=`https://images.proteinatlas.org/${linkList[0]}_blue_red_green.jpg`
+                    document.getElementById("hpaImage").src=imageLink
+                    if (imageList.length>0){
+                      document.getElementById("indexText").innerHTML="1/"+linkList.length
+                    } else if (imageList.length<1) {
+                      document.getElementById("indexText").innerHTML="No images available"
+                    }
+                    
+	            }
+                
+            });
+                        fetch(url)
+                            .then(response => response.json())
+                            .then(data => {
+                                var matches = [];
+                                var scores = [];
+                                for (i = 0; i < data.length; i++) {
+                                    var bestMatchString = JSON.stringify(data[i]);
+                                    let bestMatchStringTwo = bestMatchString.replace("[{", "{");
+                                    let bestMatchStringThree = bestMatchStringTwo.replace("}]", "}");
+                                    var bestMatchObject = JSON.parse(bestMatchStringThree);
+                                    matches.push(bestMatchObject.preferredName_B);
+                                    scores.push(bestMatchObject.score);
+                                }
+
+                                var para = document.createElement("div");
+                                var node = document.createElement("div");
+                                para.appendChild(node);
+                                var element = document.getElementById("cy");
+                                element.appendChild(para);
+
+                                for (i = 0; i < matches.length; i++) {
+                                    elemts.push({
+                                        data: {
+                                            id: matches[i]
+                                        }
+                                    });
+                                    elemts.push({
+                                        data: {
+                                            id: elemts.length + " " + scores[i],
+                                            source: protein,
+                                            target: matches[i]
+                                        }
+                                    })
+                                }
+                                var cy = cytoscape({
+                                    container: document.getElementById('cy'),
+                                    elements: elemts,
+                                    layout: {
+                                        name: 'cise'
+                                    },
+
+                                    style: [{
+                                        selector: 'node',
+                                        style: {
+                                            'background-color': 'grey',
+                                            label: 'data(id)'
+                                        }
+                                    }]
+
+                                });
+
+                                var collect = cy.collection()
+                                var list = [];
+                                cy.edges(function(ele, i) {
+                                    var str = ele['_private']['data']['id'];
+                                    var value = str.substring(str.length - 5, str.length);
+                                    collect = collect.union(ele);
+                                    var edg = collect[collect.length - 1]['_private']['data']['id'];
+                                    var ed = parseFloat(edg.substring(edg.length, edg.length - 5))
+                                    list.push(ed);
+                                });
+
+                                for (i = 0; i < list.length; i++) {
+                                    if (list[i] > 0.998) {
+                                        collect[i].style('line-color', 'red')
+                                    } else if (list[i] < 0.999 && list[i] > 0.997) {
+                                        collect[i].style('line-color', 'orange')
+                                    } else if (list[i] < 0.998 && list[i] > 0.996) {
+                                        collect[i].style('line-color', 'yellow')
+                                    } else if (list[i] < 0.997 && list[i] > 0.995) {
+                                        collect[i].style('line-color', 'green')
+                                    } else if (list[i] < 0.996 && list[i] > 0.994) {
+                                        collect[i].style('line-color', 'blue')
+                                    } else {
+                                        collect[i].style('line-color', 'grey')
+                                    }
+                                }
+
+                                cy.edges().on('click', function(e) {
+                                    var str = e.target['_private']['data']['id'];
+                                    console.log(e.target['_private'])
+                                    var message = str.substring(str.length - 5, str.length);
+                                    console.log(message)
+                                    document.getElementById("interactionStrength").innerHTML = "The protein interaction strength is " + message + " between " + e.target['_private']['data']['source'] + " and " + e.target['_private']['data']['target'];
+                                });
+
+                                var collection = cy.collection();
+                                cy.nodes().on('click', function(e) {
+                                    var clickedNode = e.target;
+                                    collection = collection.union(clickedNode);
+                                    console.log(collection[collection.length - 1]['_private']['data']['id'])
+                                    update(collection);
+                                });
+
+                            })
+                    }
+
+
+                });
+            var parameters = {
+                "species": 9606,
+                "limit": 5,
+                "caller_identity": "in_development"
+            };
+
+
+          
+        }
+        async run(ctx) {
+          
+        }
+    }
+    api.export(new ImJoyPlugin())
+</script>
+
+<style>
+    #cy{
+    width: 900px;
+    height: 450px;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    right: 500px
+    }
+    #image-container{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    left: 940px;
+    }
+    #changeImage{
+    position: absolute;
+    top: 163px;
+    left: 1243px;
+    width: 200px;
+    }
+    #headline{
+    position: absolute;
+    top: 157px;
+    left: 940px;
+    }
+    #imageIndex{
+    position: absolute;
+    top:700px;
+    left:940px;
+    }
+    #title{
+    position: absolute;
+    left:10px;
+    }
+    #body{
+    height: 550px;
+    }
+    #search{
+    left: 600px;
+    }
+</style>
+
+<window>
+    <div class="hero bg-gray">
+        <header class="navbar">
+            <section class="navbar-section">
+                <a class="navbar-brand mr-2" id="title"><h2>PPI Network</h2></a>
+            </section>
+            <section class="navbar-section">
+                <div class="input-group input-inline" id="search">
+                    <input class="form-input" type="text" placeholder="Gene name (in caps)" id="searchProtein">
+                    <input class="form-input" type="text" placeholder="# interaction partners" id="interactions#">
+                    <button class="btn btn-primary input-group-btn" id="searchButton">Search</button>
+                </div>
+            </section>
+        </header>
+        <div class="hero-body" color="grey" id="body">
+            <h6 font-family="arial" , id="interactionStrength"> Click any edge to get the interaction strength </h6>
+            <p> Color key to <a href="https://pubmed.ncbi.nlm.nih.gov/15608232/" target="blank">interaction strength</a>:<span style="color: red"> 0.999</span><span style="color: orange"> 0.998</span><span style="color: yellow"> 0.997</span><span style="color: green"> 0.996</span><span style="color: blue"> 0.995</span><span style="color: grey"> Below 0.995</span></p>
+            <div id="cy"></div>
+            <div id="image-container"><img id="hpaImage", src="https://images.proteinatlas.org/30741/800_A6_1_blue_red_green.jpg", width="500", height="500"></div>
+            <div id="headline"> 
+          <h1 id="headline-text"> </h1>
+        </div>
+        <div id="imageIndex"> 
+          <h4 id="indexText">1</h4>
+        </div>
+        
+        <button type="button" id="changeImage" class="btn">Change Image</button>
+        </div>
+        
+    </div>
+</window>

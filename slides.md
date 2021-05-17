@@ -13,8 +13,10 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
  * AI/Deep learning for automated image analysis
  * ImJoy fr building AI tools
 
-<img style="width: 100px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/hpa-logo.jpeg"></img>
-<img style="width: 100px;" src="https://imjoy.io/static/img/imjoy-icon.png"></img>
+<img style="width: 200px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/hpa-logo.jpeg"></img>
+<img style="width: 200px; height: 200px;" src="https://imjoy.io/static/img/imjoy-icon.png"></img>
+
+<h9>Bildkällor: https://github.com/imjoy-team, https://twitter.com/ProteinAtlas/photo</h9>
 -----
 
 <!-- .slide: data-state="ij-macro-1" -->
@@ -28,13 +30,30 @@ A basic ImageJ macro example:
 ## Annotation tool
 
 <div id="kaibu-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
+-----
+## Background: Protein-Protein Interaction Networks
+* Graph containing nodes and edges
+* Biologically essential interactions
+* Find novel protein functions
+* Understand disease mechanisms
+* Allocate drug targets
 
+
+<img style="width: 400px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Sk%C3%A4rmklipp.JPG"></img>
+-----
+## Methods: PPI Network
+* STRING for data
+* Cytoscape.js and Cise for layout
+* Nodes and edges turned to buttons
+* UMAP CSV file used for images
+
+<img style="width: 400px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Sk%C3%A4rmklipp.JPG"></img>
 -----
 ## PPI Demo
 
 <button class="button" onclick="runPPIDemo()">Run PPI Demo</button>
 
-<div id="ppi-demo-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
+<div id="ppi-demo-window" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
 -----
 <img style="width: 400px; height: 300px" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Sk%C3%A4rmklipp.JPG"></img>
 -----
@@ -159,3 +178,7 @@ Reveal.addEventListener('kaibu-annotation', async function(){
   await viewer.add_shapes([], {name:"annotation"})
 })
 ```
+
+
+
+ 

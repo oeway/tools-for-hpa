@@ -37,9 +37,19 @@ A basic ImageJ macro example:
 <div id="ppi-demo-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
 -----
 
+## Plotly Demo
+<button class="button" onclick="runPlotlyDemo()">Run Plotly Demo</button>
+
+-----
+# Thank you
+
 <!-- startup script  -->
 ```javascript execute
 
+async function runPlotlyDemo(){
+  const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")
+  await p.run()
+}
 async function runPPIDemo(){
     // const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html")
     // await p.run()
@@ -147,3 +157,6 @@ Reveal.addEventListener('kaibu-annotation', async function(){
   await viewer.add_shapes([], {name:"annotation"})
 })
 ```
+
+
+

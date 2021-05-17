@@ -30,9 +30,22 @@ A basic ImageJ macro example:
 <div id="kaibu-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
 
 -----
+## PPI Demo
+
+<button class="button" onclick="runPPIDemo()">Run PPI Demo</button>
+
+<div id="ppi-demo-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
+-----
 
 <!-- startup script  -->
 ```javascript execute
+
+async function runPPIDemo(){
+    // const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html")
+    // await p.run()
+    const w = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html", window_id: 'ppi-demo-window'})
+}
+
 function startImageJ(){
   api.createWindow({src:"https://ij.imjoy.io", name:"ImageJ.JS"})  
 }

@@ -1,8 +1,16 @@
 ## Building Image Analysis Tools for the Human Protein Atlas
 
 Group 11
+
 Project Supervisor: Wei Ouyang
+
 Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
+
+-----
+## Aim
+* Create computational tools for facilitating data analysis and exploration at HPA
+* 5 ImJoy plugins
+
 
 -----
 ## Background: The HPA and ImJoy
@@ -156,12 +164,7 @@ async function initializeMacroEditor(editor_container, code){
 }
 
 Reveal.addEventListener('ij-macro-1', async ()=>{
-    const code = `run("Blobs (25K)");
-setAutoThreshold("Default");
-setOption("BlackBackground", true);
-run("Convert to Mask");
-run("Analyze Particles...", "size=5-Infinity add");
-`
+    const code = ``
     initializeMacroEditor('macro-editor-1', code)
 })
 

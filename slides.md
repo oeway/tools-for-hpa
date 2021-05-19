@@ -90,7 +90,7 @@ A basic ImageJ macro example:
 -----
 
 ## Plotly Demo
-<button class="button" onclick="runPlotlyDemo()">Run Plotly Demo</button>
+<button class="button" onclick="runClassifierHPA-UMAP">Run Plotly Demo</button>
 
 -----
 # Thank you

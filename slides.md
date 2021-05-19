@@ -40,6 +40,12 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
 * Extract ID and location 
 * Segmentation
 * Analyze the green channel
+
+<img style="width: 200px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/rgb_cell.png"></img>
+
+<img style="width: 600px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/rbg_split.png"></img>
+
+<img style="width: 400px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/rbg_split_3.png"></img>
 -----
 
 <!-- .slide: data-state="ij-macro-1" -->

@@ -56,6 +56,11 @@ A basic ImageJ macro example:
 
 -----
 ## Results: ImageJ
+
+<img style="width: 900px; height: 600px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Average%20Intensity%20Located%20in%20Mitochondria.png"></img>
+<img style="width: 900px; height: 600px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Average%20Intensity%20Located%20in%20Centrosome.png"></img>
+
+
 -----
 ## Plugin #2
 -----
@@ -90,7 +95,7 @@ A basic ImageJ macro example:
 -----
 
 ## Plotly Demo
-<button class="button" onclick="runClassifierHPA-UMAP">Run Plotly Demo</button>
+<button class="button" onclick="runPlotlyDemo()">Run Plotly Demo</button>
 
 -----
 # Thank you
@@ -102,12 +107,6 @@ async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")
   await p.run()
 }
-
-async function runClassifierHPA-UMAP(){
-  const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ClassifierHPA-UMAP.imjoy.html")
-  await p.run()
-}
-
 async function runPPIDemo(){
     // const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html")
     // await p.run()
@@ -195,7 +194,7 @@ async function initializeMacroEditor(editor_container, code){
 }
 
 Reveal.addEventListener('ij-macro-1', async ()=>{
-    const code = ``
+    const code = `put code here`
     initializeMacroEditor('macro-editor-1', code)
 })
 

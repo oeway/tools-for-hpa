@@ -24,7 +24,22 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
 <img style="width: 200px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/hpa-logo.jpeg"></img>
 <img style="width: 200px; height: 200px;" src="https://imjoy.io/static/img/imjoy-icon.png"></img>
 
-<h9>Bildkällor: https://github.com/imjoy-team, https://twitter.com/ProteinAtlas/photo</h9>
+<h9>Image Source: https://github.com/imjoy-team, https://twitter.com/ProteinAtlas/photo</h9>
+-----
+## Plugin #1
+-----
+## Background: ImageJ
+
+* Easy to use
+* Contains many plugins
+* Free & Open Source
+
+<img style="width: 300px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/iamgeJ_logo.png"></img>
+-----
+## Methods: ImageJ
+* Extract ID and location 
+* Segmentation
+* Analyze the green channel
 -----
 
 <!-- .slide: data-state="ij-macro-1" -->
@@ -33,6 +48,10 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
 A basic ImageJ macro example:
 <div id="macro-editor-1"></div>
 
+-----
+## Results: ImageJ
+-----
+## Plugin #2
 -----
 <!-- .slide: data-state="kaibu-annotation" -->
 ## Annotation tool

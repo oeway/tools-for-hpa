@@ -1,0 +1,83 @@
+<docs>
+[TODO: write documentation for this plugin.]
+</docs>
+
+<config lang="json">
+{
+    "name": "Untitled Plugin",
+    "type": "native-python",
+    "version": "0.1.0",
+    "description": "[TODO: describe this plugin with one sentence.]",
+    "cover": "",
+    "tags": [],
+    "ui": "",
+    "icon": "extension",
+    "inputs": null,
+    "outputs": null,
+    "flags": [],
+    "api_version": "0.1.8",
+    "env": "",
+    "permissions": [],
+    "requirements": ["plotly"],
+    "dependencies": []
+}
+</config>
+
+<script lang="python">
+from imjoy import api
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import requests
+import io
+
+url = "https://dl.dropbox.com/s/s4m2iysupy8gwj0/umap_results_fit_all_transform_all.color_series.csv"
+s = requests.get(url).content
+data = pd.read_csv(io.StringIO(s.decode('utf-8')))
+
+
+class ImJoyPlugin():
+    def setup(self):
+        api.log('initialized')
+
+    async def run(self, ctx):
+        color_coding_column = await api.prompt("select a column name", 'location')
+    
+        data_table = data.copy()[
+            data[color_coding_column].notnull() == True
+        ]
+        featured_column = data_table[color_coding_column]
+
+        multiple_locations = featured_column.str.find(',')
+        featured_column[multiple_locations > -1] = 'Multiple_' + color_coding_column + 's'
+        discrete = px.colors.qualitative.Alphabet
+        diverging = None
+
+
+        marker_size = np.ones(featured_column.shape)
+
+        print('Creating a three dimensional scatter plot...')
+        await api.alert("Print")
+        fig = px.scatter_3d(
+            data_table, 
+            x='x',
+            y='y',
+            z='z',
+            size=marker_size,
+            color=featured_column,  
+            hover_name=color_coding_column,
+            color_discrete_sequence=discrete,
+            color_continuous_scale=diverging,
+            size_max=6,
+            opacity=1
+        )
+        await api.alert("Fig")
+        chart_editor = await api.createWindow(src='https://chart.imjoy.io/',
+                                            name='Plotly Demo',
+                                            fullscreen=True,
+                                            config={"hideControls": True},
+                                            )
+        await chart_editor.setState(fig.to_dict())
+
+api.export(ImJoyPlugin())
+</script>

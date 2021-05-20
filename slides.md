@@ -129,11 +129,11 @@ async function oneButtonTwoFunctions(){
 }
 
 async function runExclusionResult(){
-  const p = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", window_id: 'ExcRes'})
+  const p1 = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", window_id: 'ExcRes'})
 }
 
 async function runFeatVisHPAUMAP(){
-  const p = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html", window_id: 'FVHPAUMAP'})
+  const p2 = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html", window_id: 'FVHPAUMAP'})
 }
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")

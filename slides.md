@@ -113,8 +113,8 @@ A basic ImageJ macro example:
 -----
 ## Plotly Demo
 <button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
-<div id="FVHPAUMAP", style="display: inline-block;width: 100%; height: calc(100vh);></div>
-<div id="ExcRes", style="display: inline-block;width: 100%; height: calc(100vh);></div>
+<div id="FVHPAUMAP", style="display: inline-block;width: 100%; height: calc(100vh)";></div>
+<div id="ExcRes", style="display: inline-block;width: 100%; height: calc(100vh);"></div>
 -----
 # Thank you
 

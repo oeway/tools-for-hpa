@@ -110,6 +110,7 @@ A basic ImageJ macro example:
 -----
 ## Plotly Demo
 <button class="button" onclick="runFeatVisHPA-UMAP()">Run feature visualizer</button>
+<div id="runFeatVis-HPAUMAP"></div>
 
 -----
 # Thank you

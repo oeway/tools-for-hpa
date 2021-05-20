@@ -19,7 +19,7 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
  * Consists of six atlases
  * Cell Atlas - images of 12 813 genes
  * AI/Deep learning for automated image analysis
- * ImJoy fr building AI tools
+ * ImJoy for building AI tools
 
 <img style="width: 200px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/hpa-logo.jpeg"></img>
 <img style="width: 200px; height: 200px;" src="https://imjoy.io/static/img/imjoy-icon.png"></img>
@@ -69,6 +69,15 @@ A basic ImageJ macro example:
 
 <div id="kaibu-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
 -----
+
+-----
+## Background: Feauture Visualization of Protein Images in Mitochondria
+* Main idea: extract information from, and reveal patterns among images
+* Scientific field within deep learing
+* Built upon Neural Networks
+
+<img style="width: 400px; height: 150px;" src ="https://github.com/oeway/tools-for-hpa/blob/19d5a4653e7e61b82e5501fa3b5b5a171720bde4/assets/Workflow%20CNN.jpg"></img>
+-----
 ## Background: Protein-Protein Interaction Networks
 * Graph containing nodes and edges
 * Biologically essential interactions
@@ -77,7 +86,7 @@ A basic ImageJ macro example:
 * Allocate drug targets
 
 
-<img style="width: 400px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Sk%C3%A4rmklipp.JPG"></img>
+<img style="width: 400px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Sk%C3%A4rmklipp.jpg"></img>
 -----
 ## Methods: PPI Network
 * STRING for data
@@ -209,7 +218,5 @@ Reveal.addEventListener('kaibu-annotation', async function(){
   await viewer.add_shapes([], {name:"annotation"})
 })
 ```
-
-
 
  

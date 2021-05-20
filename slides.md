@@ -26,7 +26,12 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
 
 <h9>Image Source: https://github.com/imjoy-team, https://twitter.com/ProteinAtlas/photo</h9>
 -----
+## Overall Methodology
+
+wilmas stuff here
+-----
 ## Plugin #1
+ImageJ
 -----
 ## Background: ImageJ
 
@@ -40,6 +45,7 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
 * Extract ID and location 
 * Segmentation
 * Analyze the green channel
+
 
 <img style="width: 200px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/rgb_cell.png"></img>
 
@@ -62,7 +68,14 @@ A basic ImageJ macro example:
 
 
 -----
+## Possible Improvements
+
+* Code it on Javascript
+* Entry for category selection
+
+-----
 ## Plugin #2
+Annotation tool
 -----
 <!-- .slide: data-state="kaibu-annotation" -->
 ## Annotation tool
@@ -138,7 +151,10 @@ Feature Visualization of Protein Images in Mitochondria
 <div id="ExcRes" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
 
 -----
-## Thank you
+## <img src="https://cdn.discordapp.com/emojis/493847827118555146.gif?v=1" alt="blob left" style="width:100px;height:100px;"> Hope you ImJoyed it! <img src="https://cdn.discordapp.com/emojis/492776678742032395.gif?v=1" alt="blob right" style="width:100px;height:100px;">
+
+
+
 
 <!-- startup script  -->
 ```javascript execute

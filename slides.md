@@ -103,8 +103,8 @@ A basic ImageJ macro example:
 <div id="ppi-demo-window" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
 -----
 ## Background Uniform Manifold and Projection (UMAP)
-* Reduces a data set into a lower dimension
-* 
+* Reduces a data set into lower dimensions
+* Higher dimensional data as plot features
 
 -----
 ## Plotly Demo

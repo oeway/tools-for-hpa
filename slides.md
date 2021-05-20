@@ -115,8 +115,9 @@ A basic ImageJ macro example:
 <button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
 <div id="FVHPAUMAP" style="display: inline-block;width: 100%; height: calc(100vh)";></div>
 <div id="ExcRes" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
+
 -----
-# Thank you
+## Thank you
 
 <!-- startup script  -->
 ```javascript execute

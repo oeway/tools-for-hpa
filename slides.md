@@ -78,6 +78,9 @@ A basic ImageJ macro example:
 
 <img style="width: 400px; height: 150px;" src ="https://github.com/oeway/tools-for-hpa/blob/19d5a4653e7e61b82e5501fa3b5b5a171720bde4/assets/Workflow%20CNN.jpg"></img>
 -----
+## Plugin #4
+## Protein-Protein Interaction Network
+-----
 ## Background: Protein-Protein Interaction Networks
 * Graph containing nodes and edges
 * Biologically essential interactions
@@ -86,7 +89,7 @@ A basic ImageJ macro example:
 * Allocate drug targets
 
 
-<img style="width: 400px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Sk%C3%A4rmklipp.jpg"></img>
+<img style="width: 400px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Sk%C3%A4rmklipp.JPG"></img>
 -----
 ## Methods: PPI Network
 * STRING for data
@@ -109,8 +112,7 @@ A basic ImageJ macro example:
 
 -----
 ## Plotly Demo
-<button class="button" onclick="runFeatVisHPA-UMAP()">Run feature visualizer</button>
-<div id="runFeatVis-HPAUMAP"></div>
+<button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
 
 -----
 # Thank you
@@ -118,19 +120,18 @@ A basic ImageJ macro example:
 <!-- startup script  -->
 ```javascript execute
 
-async function runFeatVisHPA-UMAP(){
+async function runFeatVisHPAUMAP(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
   await p.run()
-  
+}
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")
   await p.run()
 }
-
 async function runPPIDemo(){
-    // const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html")
-    // await p.run()
-    const w = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html", window_id: 'ppi-demo-window'})
+     //const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html")
+     //await p.run()
+     const w = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html", window_id: 'ppi-demo-window'})
 }
 
 function startImageJ(){
@@ -229,5 +230,8 @@ Reveal.addEventListener('kaibu-annotation', async function(){
   await viewer.add_shapes([], {name:"annotation"})
 })
 ```
+
+ 
+
 
  

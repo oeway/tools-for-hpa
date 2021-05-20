@@ -69,7 +69,8 @@ A basic ImageJ macro example:
 
 <div id="kaibu-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
 -----
-
+## Plugin #3
+Feature Visualization of Protein Images in Mitochondria
 -----
 ## Background: Feauture Visualization of Protein Images in Mitochondria
 * Main idea: extract information from, and reveal patterns among images
@@ -77,6 +78,25 @@ A basic ImageJ macro example:
 * Built upon Neural Networks
 
 <img style="width: 400px; height: 150px;" src ="https://github.com/oeway/tools-for-hpa/blob/19d5a4653e7e61b82e5501fa3b5b5a171720bde4/assets/Workflow%20CNN.jpg"></img>
+
+-----
+## Methods: Feature Visualization of Protein Images
+* Downloading images from HPA
+* Keras & Tensorflow 2 for construction of model
+* DenseNet 121
+* CSV file to HPA UMAP @ ImJoy
+<img style="width: 400px; height: 300px;" src="https://github.com/oeway/tools-for-hpa/blob/cf20d4166c2466c9f2bba0fc712ecb3150179e9f/assets/UMAP%20cluster.jpg"></img>
+
+-----
+## Possible Improvements
+
+* More data
+* URL uploading
+
+-----
+## Classification Demo
+
+<button class="button" onclick="runClassificationDemo()">Run Classification Demo</button>
 -----
 ## Plugin #4
 ## Protein-Protein Interaction Network
@@ -122,6 +142,11 @@ A basic ImageJ macro example:
 
 <!-- startup script  -->
 ```javascript execute
+
+async function runClassificationDemo(){
+    const c = await api.getPlugin("https://imjoy.io/#/app/?p=imjoy-team/imjoy-plugins:HPA-UMAP")
+    await c.run()
+}
 
 async function oneButtonTwoFunctions(){
   runFeatVisHPAUMAP()

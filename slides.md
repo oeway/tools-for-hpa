@@ -118,9 +118,6 @@ A basic ImageJ macro example:
 <!-- startup script  -->
 ```javascript execute
 
-async function runFeatVisHPA-UMAP(){
-  const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
-  await p.run()
 
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")

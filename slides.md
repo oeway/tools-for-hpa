@@ -26,14 +26,6 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
 
 <h9>Image Source: https://github.com/imjoy-team, https://twitter.com/ProteinAtlas/photo</h9>
 -----
-## Overall methodology
-* Literature study
-* Basics in deep learning, AI, machine learning, image analysis, protein-protein interaction
-* Different programming languages (ImageJ macro, Python, Javascript, HTML/CSS)
-* Build individual plugins
-* Analyze results
-
------
 ## Plugin #1
 -----
 ## Background: ImageJ
@@ -77,26 +69,14 @@ A basic ImageJ macro example:
 
 <div id="kaibu-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
 -----
-## Plugin #3
-Feature Visualization of Protein Images in Mitochondria
+
 -----
-## Background: Image analysis/Classification
+## Background: Feauture Visualization of Protein Images in Mitochondria
 * Main idea: extract information from, and reveal patterns among images
 * Scientific field within deep learing
 * Built upon Neural Networks
 
 <img style="width: 400px; height: 150px;" src ="https://github.com/oeway/tools-for-hpa/blob/19d5a4653e7e61b82e5501fa3b5b5a171720bde4/assets/Workflow%20CNN.jpg"></img>
------
-## Methods: Feature Visualization of Protein Images
-* Downloading images from HPA
-* Keras & Tensorflow 2 for construction of model
-* DenseNet 121
-* CSV file to HPA UMAP @ ImJoy
------
-## Classification Demo
-
-<button class="button" onclick="runClassificationDemo()">Run Classification Demo</button>
-
 -----
 ## Background: Protein-Protein Interaction Networks
 * Graph containing nodes and edges
@@ -124,7 +104,7 @@ Feature Visualization of Protein Images in Mitochondria
 -----
 
 ## Plotly Demo
-<button class="button" onclick="runPlotlyDemo()">Run Plotly Demo</button>
+<button class="button" onclick="runFeatVisHPA-UMAP()">Run feature visualizer</button>
 
 -----
 # Thank you
@@ -132,10 +112,9 @@ Feature Visualization of Protein Images in Mitochondria
 <!-- startup script  -->
 ```javascript execute
 
-async function runClassificationDemo(){
-    const c = await api.getPlugin("https://imjoy.io/#/app/?p=imjoy-team/imjoy-plugins:HPA-UMAP")
-    await c.run()
-}
+async function runFeatVisHPA-UMAP(){
+  const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
+  await p.run()
 
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")
@@ -243,3 +222,5 @@ Reveal.addEventListener('kaibu-annotation', async function(){
   await viewer.add_shapes([], {name:"annotation"})
 })
 ```
+
+ 

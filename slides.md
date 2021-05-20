@@ -101,6 +101,7 @@ A basic ImageJ macro example:
 <button class="button" onclick="runPPIDemo()">Run PPI Demo</button>
 
 <div id="ppi-demo-window" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
+
 -----
 ## Background Uniform Manifold and Projection (UMAP)
 * Reduces a data set into lower dimensions

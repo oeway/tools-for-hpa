@@ -113,7 +113,8 @@ A basic ImageJ macro example:
 -----
 ## Plotly Demo
 <button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
-
+<div id="FVHPAUMAP", style="display: inline-block;width: 100%; height: calc(100vh);></div>
+<div id="ExcRes", style="display: inline-block;width: 100%; height: calc(100vh);></div>
 -----
 # Thank you
 
@@ -121,13 +122,11 @@ A basic ImageJ macro example:
 ```javascript execute
 
 async function runExclusionResult(){
-  const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html")
-  await p.run()
+  const p = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", window_id: 'ExcRes'})
 }
 
 async function runFeatVisHPAUMAP(){
-  const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
-  await p.run()
+  const p = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html", window_id: 'FVHPAUMAP'})
 }
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")

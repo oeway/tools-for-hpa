@@ -112,14 +112,19 @@ A basic ImageJ macro example:
 
 -----
 ## Plotly Demo
-<button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
-<div id="FVHPAUMAP", style="display: inline-block;width: 100%; height: calc(100vh)";></div>
-<div id="ExcRes", style="display: inline-block;width: 100%; height: calc(100vh);"></div>
+<button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
+<div id="FVHPAUMAP" style="display: inline-block;width: 100%; height: calc(100vh)";></div>
+<div id="ExcRes" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
 -----
 # Thank you
 
 <!-- startup script  -->
 ```javascript execute
+
+async function oneButtonTwoFunctions(){
+  runFeatVisHPAUMAP()
+  runExclusionResult()
+}
 
 async function runExclusionResult(){
   const p = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", window_id: 'ExcRes'})

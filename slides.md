@@ -120,6 +120,11 @@ A basic ImageJ macro example:
 <!-- startup script  -->
 ```javascript execute
 
+async function runExclusionResult(){
+  const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html")
+  await p.run()
+}
+
 async function runFeatVisHPAUMAP(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
   await p.run()

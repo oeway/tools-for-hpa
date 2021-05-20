@@ -57,7 +57,6 @@ class ImJoyPlugin():
         marker_size = np.ones(featured_column.shape)
 
         print('Creating a three dimensional scatter plot...')
-        await api.alert("Print")
         fig = px.scatter_3d(
             data_table, 
             x='x',
@@ -65,13 +64,12 @@ class ImJoyPlugin():
             z='z',
             size=marker_size,
             color=featured_column,  
-            hover_name=color_coding_column,
+            # hover_name=color_coding_column,
             color_discrete_sequence=discrete,
             color_continuous_scale=diverging,
             size_max=6,
             opacity=1
         )
-        await api.alert("Fig")
         chart_editor = await api.createWindow(src='https://chart.imjoy.io/',
                                             name='Plotly Demo',
                                             fullscreen=True,

@@ -151,7 +151,6 @@ Feature Visualization of Protein Images in Mitochondria
 <button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
 
 <div id="FVHPAUMAP" style="display: inline-block;width: 100%; height: calc(100vh)";></div>
-//<div id="ExcRes" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
 
 -----
 ## Plugin #5

@@ -1,0 +1,170 @@
+﻿<docs lang="markdown">
+[TODO: write documentation for this plugin.]
+</docs>
+
+<config lang="json">
+{
+  "name": "Annotation tool for HPA 2.0",
+  "type": "window",
+  "tags": [],
+  "ui": "",
+  "version": "0.1.0",
+  "cover": "",
+  "description": "To train plugin coding/design",
+  "icon": "extension",
+  "inputs": null,
+  "outputs": null,
+  "api_version": "0.1.8",
+  "env": "",
+  "permissions": [],
+  "requirements": [],
+  "dependencies": [],
+  "defaults": {"w": 20, "h": 10}
+}
+</config>
+<script lang="javascript">
+class ImJoyPlugin {
+  async setup() {
+   
+   async function nextPic(){
+      
+
+     }
+    async function missionInfo(){
+      
+
+     }
+     async function goHPA(){
+     }
+  }
+
+  async run(ctx) {
+        const viewer = await api.showDialog({src: "https://kaibu.org/#/app", name: "Annotation tool for HPA"})
+        await viewer.set_loader(true)
+        const path = "https://images.proteinatlas.org/39634/417_H5_1_blue_red_green.jpg"
+        await viewer.view_image(path)
+        const annotation_layer = await viewer.add_shapes([[[0, 0], [0, 0], [0, 0], [0, 0]]], {shape_type:"", edge_color:"orange", name:"", label:"Example Figure", text_placement:"point", draw_enable:"true", draw_label:"Cell", user_name: "Anotation Agent"})
+        await api.alert("Annotate your favorite cell in each picture")
+        await viewer.add_widget ({_rintf: true, name:"Mission Info", type:"control", max_height:"30", elements: [
+             {
+                        "type": "button",
+                        "label": "Repeat Mission",
+                        "callback": async function missionInfo(){
+                        await api.alert("Annotate your favorite cell in each picture")
+                        }
+             }
+            ]
+          })
+        let index = 0
+        await viewer.add_widget ({_rintf: true, name:"Picture Selector", type:"control", max_height:"30", elements: [
+                    {
+                        "type": "button",
+                        "label": "Next Picture",
+                        "callback": async function nextPic(){
+                            const features = await annotation_layer.get_features()
+                            console.log(features)
+                            const content = await api.getAttachment("image-urls")
+                            const urlList = content.split('\n').filter(function (item){
+                            if(item !== "")
+                                return true
+                            else
+                                return false
+                            })
+                            await viewer.clear_layers()
+                            index = index + 1
+                            await viewer.view_image(urlList[index])
+                            await viewer.add_shapes([[[0, 0], [0, 0], [0, 0]]], {shape_type:"", edge_color:"", name:"", label:"Example Figure", text_placement:"point", draw_enable:"true", draw_label:"Cell", user_name: "Annotation Agent"})                          
+                    },
+                    }
+                    
+            ]
+          })
+          await viewer.add_widget ({_rintf: true, name:"Visit HPA", type:"control", max_height:"30", elements: [
+             {
+                        "type": "button",
+                        "label": "Go",
+                        "callback": async function goHPA(){
+                        window.open("https://www.proteinatlas.org/")
+                        }
+             }
+            ]
+          })
+          await viewer.set_loader(false)
+ 
+    }
+  }
+
+
+api.export(new ImJoyPlugin())
+</script>
+<attachment name="image-urls">
+https://images.proteinatlas.org/39634/417_H5_1_blue_red_green.jpg
+https://images.proteinatlas.org/73999/1634_A10_1_blue_red_green.jpg
+https://images.proteinatlas.org/39634/413_H5_2_blue_red_green.jpg
+https://images.proteinatlas.org/73999/1634_A10_5_blue_red_green.jpg
+https://images.proteinatlas.org/39634/413_H5_1_blue_red_green.jpg
+https://images.proteinatlas.org/47192/1790_H4_2_blue_red_green.jpg
+https://images.proteinatlas.org/47192/1790_H4_4_blue_red_green.jpg
+https://images.proteinatlas.org/31584/1789_F8_28_cr59c4d0044eaac_blue_red_green.jpg
+https://images.proteinatlas.org/28448/291_C5_3_blue_red_green.jpg
+https://images.proteinatlas.org/51956/855_D9_2_blue_red_green.jpg
+https://images.proteinatlas.org/28448/291_C5_4_blue_red_green.jpg
+https://images.proteinatlas.org/30620/1356_H2_2_blue_red_green.jpg
+https://images.proteinatlas.org/30620/1356_H2_1_blue_red_green.jpg
+https://images.proteinatlas.org/400/56_A10_2_blue_red_green.jpg
+https://images.proteinatlas.org/400/56_A10_1_blue_red_green.jpg
+https://images.proteinatlas.org/24019/280_G7_2_blue_red_green.jpg
+https://images.proteinatlas.org/24019/280_G7_1_blue_red_green.jpg
+https://images.proteinatlas.org/48473/759_F9_9_blue_red_green.jpg
+https://images.proteinatlas.org/51956/855_D9_1_blue_red_green.jpg
+https://images.proteinatlas.org/48473/759_F9_7_blue_red_green.jpg
+https://images.proteinatlas.org/69673/1304_A11_3_blue_red_green.jpg
+https://images.proteinatlas.org/43480/472_H6_3_blue_red_green.jpg
+https://images.proteinatlas.org/65070/1715_F3_14_cr57fd123c29fca_blue_red_green.jpg
+https://images.proteinatlas.org/24049/342_E12_3_blue_red_green.jpg
+https://images.proteinatlas.org/69834/1325_B9_4_blue_red_green.jpg
+https://images.proteinatlas.org/65070/1715_F3_5_cr57fd1233a1185_blue_red_green.jpg
+https://images.proteinatlas.org/24059/197_H7_1_blue_red_green.jpg
+https://images.proteinatlas.org/24059/197_H7_2_blue_red_green.jpg
+https://images.proteinatlas.org/49395/1128_E12_5_blue_red_green.jpg
+https://images.proteinatlas.org/2110/118_H1_2_blue_red_green.jpg
+https://images.proteinatlas.org/43480/476_H6_4_blue_red_green.jpg
+https://images.proteinatlas.org/49395/1128_E12_4_blue_red_green.jpg
+https://images.proteinatlas.org/43480/472_H6_1_blue_red_green.jpg
+https://images.proteinatlas.org/24049/342_E12_2_blue_red_green.jpg
+https://images.proteinatlas.org/2110/118_H1_1_blue_red_green.jpg
+https://images.proteinatlas.org/69824/1752_A10_2_cr5804d8ab17e20_blue_red_green.jpg
+https://images.proteinatlas.org/69824/1752_A10_18_cr5804d8b501042_blue_red_green.jpg
+https://images.proteinatlas.org/9656/68_A8_1_blue_red_green.jpg
+https://images.proteinatlas.org/9656/68_A8_2_blue_red_green.jpg
+https://images.proteinatlas.org/50492/837_H8_2_blue_red_green.jpg
+https://images.proteinatlas.org/50492/837_H8_3_blue_red_green.jpg
+https://images.proteinatlas.org/42028/492_A10_4_blue_red_green.jpg
+https://images.proteinatlas.org/42028/492_A10_1_blue_red_green.jpg
+https://images.proteinatlas.org/58676/1452_G10_1_blue_red_green.jpg
+https://images.proteinatlas.org/58676/1452_G10_2_blue_red_green.jpg
+https://images.proteinatlas.org/69697/1419_A10_2_blue_red_green.jpg
+https://images.proteinatlas.org/24795/1773_E12_6_blue_red_green.jpg
+https://images.proteinatlas.org/26087/280_E8_2_blue_red_green.jpg
+https://images.proteinatlas.org/30609/1240_G3_4_blue_red_green.jpg
+https://images.proteinatlas.org/69673/1304_A11_4_blue_red_green.jpg
+https://images.proteinatlas.org/27613/1207_H4_3_blue_red_green.jpg
+https://images.proteinatlas.org/27613/1207_H4_1_blue_red_green.jpg
+https://images.proteinatlas.org/78239/1790_F6_4_blue_red_green.jpg
+https://images.proteinatlas.org/78239/1790_F6_3_blue_red_green.jpg
+https://images.proteinatlas.org/2552/62_A11_4_blue_red_green.jpg
+https://images.proteinatlas.org/26087/280_E8_1_blue_red_green.jpg
+https://images.proteinatlas.org/2552/62_A11_3_blue_red_green.jpg
+https://images.proteinatlas.org/24705/290_C12_2_blue_red_green.jpg
+</attachment>
+
+<window lang="html">
+  <div>
+    <p>
+    </p>
+  </div>
+</window>
+
+<style lang="css">
+
+</style>

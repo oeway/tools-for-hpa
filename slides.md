@@ -78,9 +78,32 @@ A basic ImageJ macro example:
 Annotation tool
 -----
 <!-- .slide: data-state="kaibu-annotation" -->
-## Annotation tool
+## Background Annotation tool
+* Displaying and annotating HPA images
+* User driven data collection
+* Covid-19 impact
 
-<div id="kaibu-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>
+<img style="width: 600px; height: 500px;" src ="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Annotation%20tool%20for%20HPA%20presentation%20pic.PNG"></img>
+
+
+
+<!--<div id="kaibu-window" style="display: inline-block;width: 100%; height: calc(100vh - 200px);"></div>-->
+-----
+## Methods Annotation tool
+* Kaibu - display and annotation
+* using python to create csv-file
+* prompts and buttons
+* saving to console
+
+<img style="width: 400px; height: 400px;" src ="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/url-creator.PNG"></img>
+<img style="width: 400px; height: 100px;" src ="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Kaibu.PNG"></img>
+
+
+-----
+## Annotation Demo
+<button class="button" onclick="runAnnotationDemo()">Run Annotation Demo</button>
+
+<div id="annotation-demo-window" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
 -----
 ## Plugin #3
 Feature Visualization of Protein Images in Mitochondria
@@ -149,6 +172,17 @@ Feature Visualization of Protein Images in Mitochondria
 
 <div id="FVHPAUMAP" style="display: inline-block;width: 100%; height: calc(100vh)";></div>
 <div id="ExcRes" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
+
+-----
+## Conclusions
+* 4 image analysis tools. One new feature.
+* Working with the HPA to provide quantitative information and data.
+* Work in progress. Crowd-sourced science solutions. 
+* Added functionality. Little HPA interaction. 
+* Great variation. More useful, multifunctional and accessible. 
+* Improvements. Learnt programming. Could always be better.
+* New possibilities. Be of help to many. 
+
 
 -----
 ## <img src="https://cdn.discordapp.com/emojis/493847827118555146.gif?v=1" alt="blob left" style="width:100px;height:100px;"> Hope you ImJoyed it! <img src="https://cdn.discordapp.com/emojis/492776678742032395.gif?v=1" alt="blob right" style="width:100px;height:100px;">
@@ -272,17 +306,19 @@ Reveal.addEventListener('ij-macro-1', async ()=>{
 })
 
 
-Reveal.addEventListener('kaibu-annotation', async function(){
+<!--Reveal.addEventListener('kaibu-annotation', async function(){-->
   // load the web app via its URL
-  viewer = await api.createWindow({src: "https://kaibu.org/#/app", window_id: "kaibu-window"})
+  <!--viewer = await api.createWindow({src: "https://kaibu.org/#/app", window_id: "kaibu-window"})-->
   // call api functions directly via RPC
   // add an image layer
-  await viewer.view_image("https://images.proteinatlas.org/61448/1319_C10_2_blue_red_green.jpg")
+  <!--await viewer.view_image("https://images.proteinatlas.org/61448/1319_C10_2_blue_red_green.jpg")-->
   // add an annotation layer
-  await viewer.add_shapes([], {name:"annotation"})
-})
+  <!--await viewer.add_shapes([], {name:"annotation"})-->
+<!--})-->
+async function runAnnotationDemo(){
+     const e = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/Annotation tool for HPA 2.0.imjoy.html", window_id: 'annotation-demo-window'})
+}
 ```
-
  
 
 

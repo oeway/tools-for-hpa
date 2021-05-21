@@ -113,7 +113,7 @@ Annotation tool
 ## Plugin #3
 Feature Visualization of Protein Images in Mitochondria
 -----
-## Background: Feauture Visualization of Protein Images in Mitochondria
+## Background: Feature Visualization of Protein Images in Mitochondria
 * Main idea: extract information from, and reveal patterns among images
 * Scientific field within deep learing
 * Built upon Neural Networks
@@ -140,7 +140,7 @@ Feature Visualization of Protein Images in Mitochondria
 <button class="button" onclick="runClassificationDemo()">Run Classification Demo</button>
 -----
 ## Plugin #4
-## UMAP
+## Interactive classification for HPA-UMAP 
 -----
 ## Background Uniform Manifold and Projection (UMAP)
 * Reduces a data set into lower dimensions
@@ -149,6 +149,7 @@ Feature Visualization of Protein Images in Mitochondria
 -----
 ## Plotly Demo
 <button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
+<img style="width: 400px; height: 300px;" src="https://github.com/oeway/tools-for-hpa/blob/main/assets/twoguis_onereport.png"></div>
 
 <div id="FVHPAUMAP" style="display: inline-block;width: 100%; height: calc(100vh)";></div>
 

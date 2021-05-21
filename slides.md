@@ -135,6 +135,21 @@ Feature Visualization of Protein Images in Mitochondria
 <button class="button" onclick="runClassificationDemo()">Run Classification Demo</button>
 -----
 ## Plugin #4
+## UMAP
+-----
+## Background Uniform Manifold and Projection (UMAP)
+* Reduces a data set into lower dimensions
+* Higher dimensional data as plot features
+
+-----
+## Plotly Demo
+<button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
+
+<div id="FVHPAUMAP" style="display: inline-block;width: 100%; height: calc(100vh)";></div>
+<div id="ExcRes" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
+
+-----
+## Plugin #5
 ## Protein-Protein Interaction Network
 -----
 ## Background: Protein-Protein Interaction Networks
@@ -160,19 +175,6 @@ Feature Visualization of Protein Images in Mitochondria
 <button class="button" onclick="runPPIDemo()">Run PPI Demo</button>
 
 <div id="ppi-demo-window" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
-
------
-## Background Uniform Manifold and Projection (UMAP)
-* Reduces a data set into lower dimensions
-* Higher dimensional data as plot features
-
------
-## Plotly Demo
-<button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
-
-<div id="FVHPAUMAP" style="display: inline-block;width: 100%; height: calc(100vh)";></div>
-<div id="ExcRes" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
-
 -----
 ## Conclusions
 * 4 image analysis tools. One new feature.

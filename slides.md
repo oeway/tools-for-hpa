@@ -113,7 +113,7 @@ Feature Visualization of Protein Images in Mitochondria
 * Scientific field within deep learing
 * Built upon Neural Networks
 
-<img style="width: 400px; height: 150px;" src ="https://github.com/oeway/tools-for-hpa/blob/19d5a4653e7e61b82e5501fa3b5b5a171720bde4/assets/Workflow%20CNN.jpg"></img>
+<img style="width: 400px; height: 150px;" src =https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Workflow%20CNN.jpg></img>
 
 -----
 ## Methods: Feature Visualization of Protein Images
@@ -121,7 +121,7 @@ Feature Visualization of Protein Images in Mitochondria
 * Keras & Tensorflow 2 for construction of model
 * DenseNet 121
 * CSV file to HPA UMAP @ ImJoy
-<img style="width: 400px; height: 300px;" src="https://github.com/oeway/tools-for-hpa/blob/cf20d4166c2466c9f2bba0fc712ecb3150179e9f/assets/UMAP%20cluster.jpg"></img>
+<img style="width: 400px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/UMAP%20cluster.jpg"></img>
 
 -----
 ## Possible Improvements

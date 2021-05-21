@@ -26,9 +26,14 @@ Wilma Brogren, Simon Jernselius, Erik Lyrén, Hugo Olsson, Chul Woo
 
 <h9>Image Source: https://github.com/imjoy-team, https://twitter.com/ProteinAtlas/photo</h9>
 -----
-## Overall Methodology
+## Overall methodology
+* Literature study
+* Basics in deep learning, AI, machine learning, image analysis, protein-protein interaction
+* Different programming languages (ImageJ macro, Python, Javascript, HTML/CSS)
+* Build individual plugins
+* Analyze results
 
-wilmas stuff here
+
 -----
 ## Plugin #1
 ImageJ

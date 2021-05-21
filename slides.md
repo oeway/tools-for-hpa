@@ -154,7 +154,8 @@ Feature Visualization of Protein Images in Mitochondria
 <img style="width: 325px; height: 350px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/mitochondria_demo.png"></img>
 <img style="width: 325px; height: 350px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/umap_demo.png"></img>
 
-
+<div id="FVHPAUMAP" style="display: inline-block;width: 50%; height: calc(100vh)";></div>
+<div id="ExcRes" style="display: inline-block;width: 50%; height: calc(100vh)";></div> 
 
 -----
 ## Plugin #5

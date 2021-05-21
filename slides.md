@@ -149,6 +149,7 @@ Feature Visualization of Protein Images in Mitochondria
 -----
 ## Plotly Demo
 <button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
+<br>
 <img style="width: 400px; height: 300px;" src="https://github.com/oeway/tools-for-hpa/blob/main/assets/twoguis_onereport.jpg"></img>
 
 <div id="FVHPAUMAP" style="display: inline-block;width: 100%; height: calc(100vh)";></div>

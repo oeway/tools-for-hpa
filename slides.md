@@ -53,8 +53,18 @@ ImageJ
 
 
 <img style="width: 200px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/rgb_cell.png"></img>
+---
+## Methods: ImageJ
+* Extract ID and location 
+* Segmentation
+* Analyze the green channel
 
 <img style="width: 600px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/rbg_split.png"></img>
+---
+## Methods: ImageJ
+* Extract ID and location 
+* Segmentation
+* Analyze the green channel
 
 <img style="width: 400px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/rbg_split_3.png"></img>
 -----
@@ -70,14 +80,6 @@ A basic ImageJ macro example:
 
 <img style="width: 900px; height: 600px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Average%20Intensity%20Located%20in%20Mitochondria.png"></img>
 <img style="width: 900px; height: 600px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Average%20Intensity%20Located%20in%20Centrosome.png"></img>
-
-
------
-## Possible Improvements
-
-* Code it on Javascript
-* Entry for category selection
-
 -----
 ## Plugin #2
 Annotation tool

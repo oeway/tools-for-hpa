@@ -210,12 +210,12 @@ async function oneButtonTwoFunctions(){
 
 async function runExclusionResult(){
   const p1 = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", id: 'ExcRes'})
-  await p1.run(p1)
+  await p1.run()
 }
 
 async function runFeatVisHPAUMAP(){
   const p2 = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
-  await p2.run(p2)
+  await p2.run()
 }
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")

@@ -461,7 +461,7 @@ Feature Visualization of Protein Images in Mitochondria
 ## Interactive classification for HPA-UMAP 
 -----
 ## Background 
-# Uniform Manifold and Projection (UMAP)
+### Uniform Manifold and Projection (UMAP)
 * Reduces a data set into lower dimensions
 * Higher dimensional data as plot features
 

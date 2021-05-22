@@ -211,12 +211,15 @@ async function oneButtonTwoFunctions(){
 }
 
 async function runExclusionResult(){
-    const p1 = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", id: 'excl'})
+    const p = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html"})
+    await p.run({})
 }
 
 async function runFeatVisHPAUMAP(){
-    const p2 = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html", id: 'FeatVis'})
+    const p = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html"})
+    await p.run({})
 }
+
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")
   await p.run()
@@ -326,7 +329,3 @@ async function runAnnotationDemo(){
      const e = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/Annotation tool for HPA 2.0.imjoy.html", window_id: 'annotation-demo-window'})
 }
 ```
- 
-
-
- 

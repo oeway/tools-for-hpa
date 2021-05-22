@@ -204,16 +204,18 @@ async function runClassificationDemo(){
 }
 
 async function oneButtonTwoFunctions(){
-  runFeatVisHPAUMAP()
-  runExclusionResult()
+    runFeatVisHPAUMAP()
+    runExclusionResult()
 }
 
 async function runExclusionResult(){
-  const p1 = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html")
+    const p1 = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html")
+    await p1.run()
 }
 
 async function runFeatVisHPAUMAP(){
-  const p2 = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
+    const p2 = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
+    await p2.run()
 }
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")

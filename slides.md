@@ -150,6 +150,8 @@ Feature Visualization of Protein Images in Mitochondria
 ## Plotly Demo
 <button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
 
+<div id="FeatVis" style="display: inline-block;width: 50%; height: calc(100vh)";></div>
+<div id="excl" style="display: inline-block;width: 50%; height: calc(100vh)";></div> 
 
 -----
 ## Plugin #5
@@ -209,13 +211,11 @@ async function oneButtonTwoFunctions(){
 }
 
 async function runExclusionResult(){
-    p1 = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html")
-    await p1.run()
+    const p1 = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", id: 'excl'})
 }
 
 async function runFeatVisHPAUMAP(){
-    p2 = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
-    await p2.run()
+    const p2 = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html", id: 'FeatVis'})
 }
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")

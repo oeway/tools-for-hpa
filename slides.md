@@ -1,4 +1,4 @@
-**## Building Image Analysis Tools for the Human Protein Atlas
+## Building Image Analysis Tools for the Human Protein Atlas
 
 Group 11
 
@@ -150,8 +150,6 @@ Feature Visualization of Protein Images in Mitochondria
 ## Plotly Demo
 <button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
 
-<div id="FeatVis" style="display: inline-block;width: 50%; height: calc(100vh)";></div>
-<div id="excl" style="display: inline-block;width: 50%; height: calc(100vh)";></div> 
 
 -----
 ## Plugin #5

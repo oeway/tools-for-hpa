@@ -129,13 +129,7 @@ Feature Visualization of Protein Images in Mitochondria
 <img style="width: 400px; height: 300px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/UMAP%20cluster.jpg"></img>
 
 -----
-## Possible Improvements
-
-* More data
-* URL uploading
-
------
-## Classification Demo
+## UMAP Feature Visualization Demo
 
 <button class="button" onclick="runClassificationDemo()">Run Classification Demo</button>
 -----
@@ -199,8 +193,7 @@ Feature Visualization of Protein Images in Mitochondria
 ```javascript execute
 
 async function runClassificationDemo(){
-    const c = await api.getPlugin("https://imjoy.io/#/app/?p=imjoy-team/imjoy-plugins:HPA-UMAP")
-    await c.run()
+ await api.showDialog({src: "https://raw.githubusercontent.com/imjoy-team/example-plugins/master/imjoy-plugins/HPA-UMAP.imjoy.html", fullscreen: true})
 }
 
 async function oneButtonTwoFunctions(){

@@ -48,7 +48,13 @@ class ImJoyPlugin():
         ]
         featured_column = data_table[color_coding_column]
         
-        removed_elements = featured_column.isin(deleted_input)
+        removed_elements = featured_column.copy()
+        for i in range(len(featured_column)):
+            if featured_column[i] == deleted_input:
+                removed_elements[i] = True
+            else:
+                removed_elements[i] =  False
+    
         data_table = data_table[removed_elements]
         featured_column = featured_column[removed_elements]
         

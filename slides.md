@@ -151,10 +151,6 @@ Feature Visualization of Protein Images in Mitochondria
 <button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
 
 
-
-<div id="FVHPAUMAP" style="display: inline-block;width: 50%; height: calc(100vh)";></div>
-<div id="ExcRes" style="display: inline-block;width: 50%; height: calc(100vh)";></div> 
-
 -----
 ## Plugin #5
 ## Protein-Protein Interaction Network
@@ -213,11 +209,13 @@ async function oneButtonTwoFunctions(){
 }
 
 async function runExclusionResult(){
-  const p1 = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", id: 'ExcRes'})
+  const p1 = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", id: 'ExcRes'})
+  await p1.run()
 }
 
 async function runFeatVisHPAUMAP(){
-  const p2 = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html", id: 'FVHPAUMAP'})
+  const p2 = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html")
+  await p2.run()
 }
 async function runPlotlyDemo(){
   const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")

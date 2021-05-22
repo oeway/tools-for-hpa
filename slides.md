@@ -220,10 +220,6 @@ async function runFeatVisHPAUMAP(){
     await p.run({})
 }
 
-async function runPlotlyDemo(){
-  const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/plotly-demo.imjoy.html")
-  await p.run()
-}
 async function runPPIDemo(){
      //const p = await api.getPlugin("https://github.com/oeway/tools-for-hpa/blob/main/assets/ppinetwork.imjoy.html")
      //await p.run()

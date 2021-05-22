@@ -209,7 +209,7 @@ async function oneButtonTwoFunctions(){
 }
 
 async function runExclusionResult(){
-  const p1 = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html", id: 'ExcRes'})
+  const p1 = await api.getPlugin(src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html")
   await p1.run()
 }
 

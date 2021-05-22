@@ -70,8 +70,10 @@ class ImJoyPlugin():
             size_max=6,
             opacity=1
         )
+        ctx.config = ctx.config or {}
         chart_editor = await api.createWindow(src='https://chart.imjoy.io/',
                                             name='Plotly Demo',
+                                            window_id=ctx.config.get("window_id");
                                             fullscreen=True,
                                             config={"hideControls": True},
                                             )

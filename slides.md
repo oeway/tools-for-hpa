@@ -150,7 +150,7 @@ Feature Visualization of Protein Images in Mitochondria
 ## Plotly Demo
 <button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
 
-
+<img style="width: 621px; height: 350px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/twoguis_onereport.jpg"></img>
 -----
 ## Plugin #5
 ## Protein-Protein Interaction Network
@@ -476,8 +476,7 @@ Feature Visualization of Protein Images in Mitochondria
 <button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
 <button class="button" onclick="runExclusionResult()">Show exclusion result</button>
 
-<div id="FeatVis" style="display: inline-block;width: 50%; height: calc(100vh)";></div>
-<div id="excl" style="display: inline-block;width: 50%; height: calc(100vh)";></div> 
+<img style="width: 621px; height: 350px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/twoguis_onereport.jpg"></img>
 
 -----
 ## Plugin #5

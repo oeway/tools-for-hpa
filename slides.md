@@ -144,7 +144,8 @@ Feature Visualization of Protein Images in Mitochondria
 
 -----
 ## UMAP Interaction Demo
-<button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
+<button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
+<button class="button" onclick="runExclusionResult()">Show exclusion result</button>
 
 <img style="width: 621px; height: 350px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/twoguis_onereport.jpg"></img>
 -----

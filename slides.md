@@ -128,6 +128,7 @@ Feature Visualization of Protein Images in Mitochondria
 * Keras & Tensorflow 2 for construction of model
 * DenseNet 121
 * CSV file to HPA UMAP @ ImJoy
+
 <img style="width: 300px; height: 200px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/UMAP%20cluster.jpg"></img>
 
 -----

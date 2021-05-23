@@ -111,9 +111,12 @@ Annotation tool
 <button class="button" onclick="runAnnotationDemo()">Run Annotation Demo</button>
 
 <div id="annotation-demo-window" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
+
 -----
 ## Plugin #3
+
 Feature Visualization of Protein Images in Mitochondria
+
 -----
 ## Background: Feature Visualization of Protein Images in Mitochondria
 * Main idea: extract information from, and reveal patterns among images

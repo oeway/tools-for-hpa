@@ -142,6 +142,7 @@ Feature Visualization of Protein Images in Mitochondria
 ## Background - Uniform Manifold and Projection (UMAP)
 * Reduces a data set into lower dimensions
 * Higher dimensional data as plot features
+* Trends e.g. clusters
 
 -----
 ## UMAP Interaction Demo

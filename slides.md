@@ -144,8 +144,7 @@ Feature Visualization of Protein Images in Mitochondria
 
 -----
 ## UMAP Interaction Demo
-<button class="button" onclick="runFeatVisHPAUMAP()">Run feature visualizer</button>
-<button class="button" onclick="runExclusionResult()">Show exclusion result</button>
+<button class="button" onclick="oneButtonTwoFunctions()">Run feature visualizer</button>
 
 <img style="width: 621px; height: 350px;" src="https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/twoguis_onereport.jpg"></img>
 -----
@@ -189,7 +188,7 @@ Feature Visualization of Protein Images in Mitochondria
 -----
 ## <img src="https://cdn.discordapp.com/emojis/493847827118555146.gif?v=1" alt="blob left" style="width:100px;height:100px;"> Hope you ImJoyed it! <img src="https://cdn.discordapp.com/emojis/492776678742032395.gif?v=1" alt="blob right" style="width:100px;height:100px;">
 
-
+-----
 
 
 <!-- startup script  -->
@@ -318,7 +317,9 @@ Reveal.addEventListener('ij-macro-1', async ()=>{
 async function runAnnotationDemo(){
      const e = await api.createWindow({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/Annotation tool for HPA 2.0.imjoy.html", window_id: 'annotation-demo-window'})
 }
+
 ```
+
 **## Building Image Analysis Tools for the Human Protein Atlas
 
 Group 11

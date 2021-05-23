@@ -206,7 +206,7 @@ async function oneButtonTwoFunctions(){
 }
 
 async function runExclusionResult(){
-    const p = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/FeatVisHPA-UMAP.imjoy.html"})
+    const p = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html"})
     await p.run({})
 }
 

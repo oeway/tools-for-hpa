@@ -1,0 +1,9 @@
+x,y,id,location_code,location,gene,gene_ensembl_id,cell_line
+6.1236396,-0.7826242,62616_1753_F11_18_cr57f3cc50a1279,23,Mitochondria,SP9,ENSG00000217236,U-2 OS ,
+-6.4590864,1.729933,dbc51f18-bbb8-11e8-b2ba-ac1f6b6435d0,4 13 21 22 25,"N. speckles,F. a. sites,PM,C. Junctions,Cytosol",,,
+-0.2440497,3.062842,39634_417_H5_3,-1 0 13 21 25,"Unknow,Nucleoplasm,F. a. sites,PM,Cytosol",ARL14EP,ENSG00000152219,U-2 OS
+-0.3658213,3.275691,39634_417_H5_1,-1 0 13 21 25,"Unknow,Nucleoplasm,F. a. sites,PM,Cytosol",ARL14EP,ENSG00000152219,U-2 OS
+-3.5734746,4.016695,70944_1304_D1_3,19,Centrosome,MTMR9,ENSG00000104643,A549
+6.9068546,-0.8498988,13254304-bbb7-11e8-b2ba-ac1f6b6435d0,23,Mitochondria
+5.356677,-0.21844144,12f6cca4-bbb7-11e8-b2ba-ac1f6b6435d0,23,Mitochondria
+5.0616517,-0.008093313,45490_554_A4_1,23,Mitochondria,COX20,ENSG00000203667,U-251 MG

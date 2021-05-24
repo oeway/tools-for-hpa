@@ -70,9 +70,7 @@ ImageJ
 -----
 
 <!-- .slide: data-state="ij-macro-1" -->
-## Try ImageJ Macro
-
-A basic ImageJ macro example:
+## Demo: Image feature extraction with ImageJ
 <div id="macro-editor-1"></div>
 
 -----
@@ -111,12 +109,9 @@ Annotation tool
 <button class="button" onclick="runAnnotationDemo()">Run Annotation Demo</button>
 
 <div id="annotation-demo-window" style="display: inline-block;width: 100%; height: calc(100vh);"></div>
-
 -----
 ## Plugin #3
-
 Feature Visualization of Protein Images in Mitochondria
-
 -----
 ## Background: Feature Visualization of Protein Images in Mitochondria
 * Main idea: extract information from, and reveal patterns among images
@@ -188,6 +183,7 @@ Feature Visualization of Protein Images in Mitochondria
 * Improvements. Learnt programming. Could always be better.
 * New possibilities. Be of help to many. 
 
+
 -----
 ## <img src="https://cdn.discordapp.com/emojis/493847827118555146.gif?v=1" alt="blob left" style="width:100px;height:100px;"> Hope you ImJoyed it! <img src="https://cdn.discordapp.com/emojis/492776678742032395.gif?v=1" alt="blob right" style="width:100px;height:100px;">
 
@@ -198,8 +194,9 @@ Feature Visualization of Protein Images in Mitochondria
 ```javascript execute
 
 async function runUMAPDemo(){
- await api.showDialog({src: "https://raw.githubusercontent.com/imjoy-team/example-plugins/master/imjoy-plugins/HPA-UMAP.imjoy.html", fullscreen: true})
-}
+ const w = await api.showDialog({src: "https://raw.githubusercontent.com/imjoy-team/imjoy-plugins/master/repository/HPA-UMAP.imjoy.html", fullscreen: true})
+ await w.loadTable("https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/Features_mitochondria.csv")
+ }
 
 async function runExclusionResult(){
     const p = await api.getPlugin({src: "https://github.com/oeway/tools-for-hpa/blob/main/assets/ResultOfExclusion.imjoy.html"})
@@ -296,7 +293,8 @@ async function initializeMacroEditor(editor_container, code){
 }
 
 Reveal.addEventListener('ij-macro-1', async ()=>{
-    const code = `put code here`
+    const response = await fetch("https://raw.githubusercontent.com/oeway/tools-for-hpa/main/assets/average_measurements.ijm")
+    const code = await response.text()
     initializeMacroEditor('macro-editor-1', code)
 })
 
